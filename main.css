@@ -1,7 +1,7 @@
 /* Body styles */
 body {
-    background-color: hsl(127, 100%, 31%); /* Dark blue - change if you want */
-    color: whitesmoke; /* Light text */
+    background-color: green;  /* ✅ Your requested color */
+    color: white;             /* Text color for contrast */
 }
 
 /* Header text alignment */
@@ -9,7 +9,7 @@ h1 {
     text-align: center;
 }
 
-/* Navigation section */
+/* Navigation styling */
 nav {
     height: 600px;
     width: 200px;
@@ -24,8 +24,8 @@ footer {
     margin-right: 200px;
 }
 
-/* Meme image (ID must match exactly, including capital I) */
+/* Meme image styling */
 #memeImage {
     margin-right: 200px;
-    width: 400px; /* Optional size adjustment */
+    width: 400px;
 }
