@@ -1,0 +1,55 @@
+<!-- Created by Musa -->
+<!-- Date: May 28, 2025 -->
+<!-- This page contains a button to play a dice game based on custom rules -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Quark's Casino</title>
+    <!-- Link to the CSS file if you want to style it -->
+    <link rel="stylesheet" href="main.css">
+    <!-- Link to JavaScript file -->
+    <script src="code.js" defer></script>
+</head>
+
+<body>
+    <!-- Page heading -->
+    <h1>Welcome to Quark's Casino Dice Game!</h1>
+
+    <!-- Form for game interaction -->
+    <form id="diceForm">
+        <!-- Submit button to trigger the game -->
+        <input type="submit" value="Roll the Dice">
+    </form>
+
+    <!-- Output area for the game result -->
+    <div id="gameOutput"></div>
+
+    <!-- Example of a second function with user input -->
+    <h2>Enter a lucky number:</h2>
+    <form id="luckyForm">
+        <input type="number" id="luckyInput" required>
+        <input type="submit" value="Check">
+    </form>
+
+    <!-- Output area for the second function -->
+    <div id="luckyOutput"></div>
+
+    <script>
+        // Handle dice form submission
+        document.getElementById("diceForm").onsubmit = function (e) {
+            e.preventDefault();
+            playGame();
+        };
+
+        // Handle lucky number form submission
+        document.getElementById("luckyForm").onsubmit = function (e) {
+            e.preventDefault();
+            checkLuckyNumber();
+        };
+    </script>
+</body>
+
+</html>
