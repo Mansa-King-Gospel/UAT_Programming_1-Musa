@@ -1,0 +1,123 @@
+<!--
+  Author: Musa Kargbo
+  Purpose: User validation for secure access to a secret message using HTML and JavaScript
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Secret Message Gate</title>
+
+    <!-- Creative Element: Background styling and custom font -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f2ff;
+            text-align: center;
+            padding: 50px;
+        }
+        form {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+            width: 300px;
+            margin: 0 auto;
+        }
+        input {
+            margin: 10px;
+            padding: 8px;
+            width: 90%;
+        }
+        #secretMessage {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+            color: green;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+        img {
+            width: 150px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🔒 Access the Secret Message</h1>
+
+    <!-- The form that contains all inputs and one submit button -->
+    <form id="userForm">
+        <!-- First Name Input -->
+        <input type="text" id="firstName" placeholder="First Name" required><br>
+
+        <!-- Last Name Input -->
+        <input type="text" id="lastName" placeholder="Last Name" required><br>
+
+        <!-- Zip Code Input -->
+        <input type="text" id="zipCode" placeholder="Zip Code (5 digits)" required><br>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Unlock Message">
+    </form>
+
+    <!-- Message display area -->
+    <div id="messageArea"></div>
+    <div id="secretMessage"></div>
+
+    <!-- Just a creative touch: Image -->
+    <img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png" alt="Secret Lock">
+
+    <script>
+        // Wait for the entire page to load
+        window.onload = function() {
+
+            // Get the form element by ID
+            const form = document.getElementById("userForm");
+
+            // Attach a submit event to the form (not an action listener)
+            form.onsubmit = function(event) {
+                // Prevent page from refreshing
+                event.preventDefault();
+
+                // Clear previous messages
+                document.getElementById("messageArea").innerHTML = "";
+                document.getElementById("secretMessage").innerHTML = "";
+
+                // Get input values
+                const firstName = document.getElementById("firstName").value.trim();
+                const lastName = document.getElementById("lastName").value.trim();
+                const zipCode = document.getElementById("zipCode").value.trim();
+
+                // Combine first and last name
+                const fullName = firstName + " " + lastName;
+
+                // Validate full name length
+                if (fullName.length > 20) {
+                    document.getElementById("messageArea").innerHTML = 
+                        "<p class='error'>Your name is too long. It must be 20 characters or fewer.</p>";
+                    return;
+                }
+
+                // Validate zip code (must be exactly 5 digits)
+                const zipPattern = /^\d{5}$/;
+                if (!zipPattern.test(zipCode)) {
+                    document.getElementById("messageArea").innerHTML = 
+                        "<p class='error'>Invalid zip code. Must be exactly 5 digits.</p>";
+                    return;
+                }
+
+                // If both inputs are valid, show the secret message
+                document.getElementById("secretMessage").innerHTML = 
+                    "🎉 Congratulations, " + fullName + "! You unlocked the secret message: <br><br>" +
+                    "💡 Keep learning and never stop coding! 💡";
+            };
+        };
+    </script>
+
+</body>
+</html>
