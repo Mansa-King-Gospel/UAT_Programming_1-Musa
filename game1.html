@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dice Game</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        #gameOutput, #luckyOutput { margin-top: 20px; font-size: 18px; }
+    </style>
+</head>
+<body>
+
+    <h1>Dice Game</h1>
+    <button onclick="playGame()">Roll the Dice</button>
+    <div id="gameOutput"></div>
+
+    <h2>What's Your Lucky Number?</h2>
+    <input type="number" id="luckyInput" placeholder="Enter a number">
+    <button onclick="checkLuckyNumber()">Check</button>
+    <div id="luckyOutput"></div>
+
+    <script src="script.js"></script> <!-- Link to external JS -->
+</body>
+</html>
